@@ -1,0 +1,44 @@
+@import "./variables.less";
+@import "./mixins.less";
+
+// Material button styles
+
+.wire-btn {
+  font-size: 16px;
+
+  &.white {
+    border: solid 1.7px white;
+    color: white;
+
+    /deep/ .mat-button-ripple .mat-ripple-element {
+      background-color: fade(white, 20%);
+    }
+  }
+  &.red {
+    border: solid 1.7px @my-red; // TODO: move to colors in variables
+    color: @my-red;
+  }
+  &.blue {
+    border: solid 1.7px @my-blue;
+    color: @my-blue;
+  }
+  &.grablue {
+    border: solid 1.7px @my-border-grey;
+    color: @my-blue;
+  }
+
+  &.darky {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+//------------------- CSS helpers ---------------------
+
+.arrange-inline {
+  display: inline-block;
+}
+.arrange-newline {
+  display: block;
+}
+
+// ----------------- TODO: custom Typography -----------------------

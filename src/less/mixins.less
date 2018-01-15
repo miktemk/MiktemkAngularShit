@@ -1,0 +1,86 @@
+.blur(@px) {
+	-webkit-filter: blur(@px);
+  -moz-filter: blur(@px);
+  -o-filter: blur(@px);
+  -ms-filter: blur(@px);
+  filter: blur(@px);
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition;
+	-moz-transition: @transition;
+	-o-transition: @transition;
+	-ms-transition: @transition;
+  transition: @transition;
+}
+
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -o-transform: @transform;
+  -ms-transform: @transform;
+  transform: @transform;
+}
+
+.transform-transition(@param) {
+  -webkit-transform: -webkit-transition @param;
+  -moz-transform: -moz-transition @param;
+  -o-transform: -o-transition @param;
+  -ms-transform: -ms-transition @param;
+  transform: transition @param;
+}
+
+.box-sizing(@sizing) {
+  -webkit-box-sizing: border-box; // Safari/Chrome, other WebKit
+  -moz-box-sizing: border-box;    // Firefox, other Gecko
+  box-sizing: border-box;         // Opera/IE 8+
+}
+
+.nowrap-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gradient(@start, @end) {
+  background: @start;
+  background: -moz-linear-gradient(101deg, @start 0%, @end 51%);
+  background: -webkit-linear-gradient(101deg, @start 0%, @end 51%);
+  background: -o-linear-gradient(101deg, @start 0%, @end 51%);
+  background: -ms-linear-gradient(101deg, @start 0%, @end 51%);
+  background: linear-gradient(191deg, @start 0%, @end 51%);
+}
+
+.gradient-overlay(@start, @end) {
+  background: -webkit-linear-gradient(bottom, @start, @end);
+  background: -moz-linear-gradient(bottom, @start, @end);
+  background: -o-linear-gradient(bottom, @start, @end);
+  background: linear-gradient(bottom, @start, @end);
+}
+
+.box-shadow(@x, @y, @blur, @spread, @color){
+  -webkit-box-shadow: @x @y @blur @spread @color;
+  -moz-box-shadow: @x @y @blur @spread @color;
+  box-shadow: @x @y @blur @spread @color;
+}
+
+// TODO: not used (came from A1 mixins.less)
+// .spinner-mixin {
+//   -webkit-animation-name: spin;
+//   -webkit-animation-duration: 800ms;
+//   -webkit-animation-iteration-count: infinite;
+//   -webkit-animation-timing-function: linear;
+//   -moz-animation-name: spin;
+//   -moz-animation-duration: 800ms;
+//   -moz-animation-iteration-count: infinite;
+//   -moz-animation-timing-function: linear;
+//   -ms-animation-name: spin;
+//   -ms-animation-duration: 800ms;
+//   -ms-animation-iteration-count: infinite;
+//   -ms-animation-timing-function: linear;
+
+//   animation-name: spin;
+//   animation-duration: 800ms;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: linear;
+// }
+

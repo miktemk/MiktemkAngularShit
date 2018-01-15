@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'my';
+  menuNavLinks:NavLink[] = [
+    {
+      url:'test1',
+      label: 'Test1'
+    },{
+      url:'test2',
+      label: 'Test2'
+    },
+  ];
+}
+
+
+//TODO: move
+export class NavLink {
+  url: string;
+  label: string;
+  responsiveClass?: string[];
 }

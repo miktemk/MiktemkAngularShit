@@ -1,0 +1,176 @@
+@import "./variables.less";
+
+
+//----------------------------- material override mixins -----------------------------------
+.my-material-radio(@color, @colorBorder, @colorRipple) {
+  /deep/ .mat-radio-button.mat-accent {
+    .mat-radio-inner-circle {
+      background-color: @color;
+    }
+    &.mat-radio-checked .mat-radio-outer-circle {
+      border-color: @colorBorder;
+    }
+    .mat-radio-ripple .mat-ripple-element {
+      background-color: @colorRipple;
+    }
+  }
+}
+
+.my-material-nav(@nav-height, @color-bg, @color-fg, @color-bar) {
+  nav {
+    height: @nav-height;
+    text-align: center;
+    background-color: @color-bg;
+
+    a {
+      // dim
+      height: @nav-height;
+      line-height: @nav-height;
+      // style
+      text-decoration: none;
+      color: @color-fg;
+      font-size: 15px;
+
+      &.active {
+        color: @color-fg;
+        opacity: 1;
+      }
+    }
+
+    /deep/ .mat-ink-bar {
+      background-color: @color-bar;
+      height: 3px;
+    }
+  }
+}
+
+//----------------------------- common UI shit -----------------------------------
+
+.my-std-scrollable-page-commons {
+  .my-page-scroller {
+    //height: @my-height-content-under2headers;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .my-page-content {
+      margin: 0 auto;
+      width: 72%;
+      min-height: 100%;
+      max-width: 720px;
+      background: white;
+      padding: 0 @my-page-margin @my-page-margin; // NOTE: bottom padding
+
+      /deep/ h1 {
+        font-size: 26px;
+        color: @my-dark-gray;
+        margin: 0 auto;
+        padding: 55px 0 40px 0;
+    
+        @media (max-width: 768px) {
+          min-width: initial;
+          max-width: initial;
+          width: 200px;
+          margin: initial;
+        }
+      }
+    }
+  }
+}
+
+// LESSON: this is how thin scrollbars are done
+.my-thin-scrollbar {
+  &::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.08);
+  }
+}
+
+// LESSON: this is how to do zoom in animation such as in grid tiles
+.my-animation-zoom-in-intro(@durationS) {
+  @keyframes zoom-in-intro-animation {
+    from {
+      opacity: 0;
+      .transform(scale(0.1));
+    }
+    to {
+      opacity: 1;
+      .transform(scale(1));
+    }
+  }
+
+  animation-name: zoom-in-intro-animation;
+  animation-duration: @durationS;
+
+  // TODO: this was an attempt to try randomized start but it didn't work since the DOM hierarchy is not linear and we don't have nth-child (see https://stackoverflow.com/questions/19269526/random-start-point-for-css-keyframes-animation)
+  // &:nth-child(7n) { animation-delay: -0.03s }
+  // &:nth-child(7n+1) { animation-delay: -0.05s }
+  // &:nth-child(7n+2) { animation-delay: -0.08s }
+  // &:nth-child(7n+3) { animation-delay: -0.06s }
+  // &:nth-child(7n+4) { animation-delay: -0.035s }
+  // &:nth-child(7n+5) { animation-delay: -0.04s }
+  // &:nth-child(7n+6) { animation-delay: -0.02s }
+}
+
+//----------------------------- common deep overrides -----------------------------------
+
+.my-loader-blue2() {
+  /deep/ .my-loader-dot {
+    border: 1px solid @my-blue;
+    background-color: @my-blue;
+  }
+}
+
+.my-form-friendly-overrides() {
+
+  //---------------- Angular Material overrides ----------------
+  /deep/ mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+
+    .mat-form-field-infix {
+      padding: .4375em 0 0; // NOTE: make bottom 0
+      .mat-input-element, .mat-select {
+        height: 30px;
+        //background-color: white; // TODO: DISCUSSION - do we have to make this white??
+      }
+    }
+    .mat-form-field-suffix {
+      .mat-icon {
+        color: fade(@my-blue, 50%);
+      }
+    }
+    .mat-form-field-placeholder {
+      color: @my-blue;
+    }
+    .mat-form-field-ripple {
+      background-color: @my-blue;
+    }
+  }
+
+  // TODO: move to mixin similar to .my-material-radio
+  /deep/ .mat-checkbox {
+    //.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    &.mat-checkbox-checked .mat-checkbox-background{
+      background-color: @my-blue;
+    }
+    .mat-checkbox-ripple .mat-ripple-element {
+      background-color: fade(@my-blue, 20%);
+    }
+    .mat-checkbox-layout {
+      font-weight: normal;
+      white-space: normal;
+      font-size: 11px;
+    }
+  }
+  
+
+  //---------------- my overrides ----------------
+  .my-loader-blue2();
+}

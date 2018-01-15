@@ -1,0 +1,20 @@
+<div class="query-bubble">
+  <div class="bubble">
+    <div class="input-placeholder" [hidden]="vm.query" ng-click="queryFocus($event)">Type here...</div>
+    <div
+      class="input bubble-input"
+      contenteditable
+      (focus)="bubbleFocus($event)"
+      (blur)="bubbleBlur($event)"
+      [textContent]="vm.query"
+      [focusByFlag]="vm.isInFocus"
+      (input)="vm.query=$event.target.textContent"
+      (keydown.enter)="onSendQuery.emit($event.target.textContent); $event.stopImmediatePropagation(); $event.preventDefault();"
+    ></div>
+    <button mat-fab class="submit-query-btn" [ngClass]="{'active': vm.query}" tabindex="0" (click)="triggerSendQuery()">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<!-- <pre>{{ vm | json }}</pre> -->
