@@ -1,0 +1,35 @@
+
+
+<div class="flex-group">
+  <div class="lhs-addon">
+    <button mat-button
+      class="filled-btn red"
+      tabindex="0"
+      (click)="prevFrame()">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    </button>
+    <button mat-button
+      class="filled-btn red"
+      tabindex="0"
+      (click)="nextFrame()">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+    <button mat-button
+      class="filled-btn red"
+      tabindex="0"
+      (click)="rerunUntilThis()">
+      <i class="fa fa-repeat" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="main-content" >
+    <mat-slider
+      *ngIf="events"
+      min="0"
+      [max]="events.length-1"
+      [value]="sliderValue"
+      step="1"
+      [(ngModel)]="sliderValue"
+      (change)="slider_change()"
+    ></mat-slider>
+  </div>
+</div>
