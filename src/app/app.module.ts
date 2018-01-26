@@ -8,15 +8,15 @@ import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    CommonComponentsModule,
+    AppRoutingModule,
+  ],
   declarations: [
     AppComponent,
     Test1Component,
     Test2Component
-  ],
-  imports: [
-    BrowserModule,
-    CommonComponentsModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
