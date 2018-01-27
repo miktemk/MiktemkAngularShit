@@ -3,10 +3,13 @@ import { UIRouterModule, Ng2StateDeclaration, UIRouter, Category, Transition, Ta
 import { Visualizer } from '@uirouter/visualizer';
 import { Test1Component } from './test1/test1.component';
 import { Test2Component } from './test2/test2.component';
+import { Angular2KnobTestComponent } from 'app/test-angular2-knob/angular2-knob-test.component';
+
 
 const routes: Ng2StateDeclaration[] = [
   { name: 'test1', url: '/test1', component: Test1Component },
   { name: 'test2', url: '/test2', component: Test2Component },
+  { name: 'test-angular2-knob', url: '/test-angular2-knob', component: Angular2KnobTestComponent },
 ];
 
 
