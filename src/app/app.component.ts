@@ -8,16 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   menuNavLinks:NavLink[] = [
     {
-      url:'test1',
-      label: 'Test1'
-    },
-    {
-      url:'test2',
-      label: 'Test2'
-    },
-    {
       url:'test-angular2-knob',
-      label: 'test-angular2-knob'
+      label: 'angular2-knob'
+    },
+    {
+      url:'test-ng2-charts',
+      label: 'ng2-charts'
     },
   ];
 }
