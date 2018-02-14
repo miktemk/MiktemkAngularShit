@@ -26,4 +26,4 @@ import { MyControlsModule } from './controls/my-controls.module';
   declarations: [
   ],
 })
-export class CommonComponentsModule { }
+export class MyCommonsModule { }

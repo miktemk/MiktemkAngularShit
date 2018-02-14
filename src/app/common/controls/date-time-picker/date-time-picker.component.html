@@ -1,0 +1,22 @@
+<div class="row">
+  <form [formGroup]="dateTimePickerForm">
+    <div class="col-md-6">
+      <mat-form-field>
+        <input matInput [formControl]="fcDate" [matDatepicker]="picker" placeholder="{{ labelDate }}" (click)="picker.open()">
+        <mat-icon matSuffix>today</mat-icon>
+        <!-- NOTE: css is offset when using mat-datepicker-toggle, due to material styles + hgb overrides, it was better to use (click) event -->
+        <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field>
+        <mat-select [formControl]="fcTime" placeholder="{{ labelTime }}">
+          <mat-option *ngFor="let t of ddlDayTimes" [value]="t">
+            {{ t | momentjsDurationFormat:"HH:mm" }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</div>

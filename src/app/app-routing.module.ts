@@ -3,11 +3,13 @@ import { UIRouterModule, Ng2StateDeclaration, UIRouter, Category, Transition, Ta
 import { Visualizer } from '@uirouter/visualizer';
 import { Angular2KnobTestComponent } from 'app/test-angular2-knob/angular2-knob-test.component';
 import { TestNg2ChartsComponent } from 'app/test-ng2-charts/test-ng2-charts.component';
+import { TestMiscControlsPageComponent } from 'app/test-misc-controls-page/test-misc-controls-page.component';
 
 
 const routes: Ng2StateDeclaration[] = [
   { name: 'test-angular2-knob', url: '/test-angular2-knob', component: Angular2KnobTestComponent },
   { name: 'test-ng2-charts', url: '/test-ng2-charts', component: TestNg2ChartsComponent },
+  { name: 'test-misc-controls', url: '/test-misc-controls', component: TestMiscControlsPageComponent },
 ];
 
 

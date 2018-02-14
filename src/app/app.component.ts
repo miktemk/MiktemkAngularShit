@@ -15,6 +15,10 @@ export class AppComponent {
       url:'test-ng2-charts',
       label: 'ng2-charts'
     },
+    {
+      url:'test-misc-controls',
+      label: 'controls'
+    },
   ];
 }
 
