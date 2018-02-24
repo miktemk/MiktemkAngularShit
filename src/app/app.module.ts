@@ -7,6 +7,7 @@ import { Angular2KnobTestModule } from 'app/test-angular2-knob/angular2-knob-tes
 import { Ng2ChartsTestModule } from 'app/test-ng2-charts/test-ng2-charts.module';
 import { MyCommonsModule } from 'app/common/my-commons.module';
 import { TestMiscControlsPageComponent } from './test-misc-controls-page/test-misc-controls-page.component';
+import { TestCssGoodiesPageComponent } from './test-css-goodies-page/test-css-goodies-page.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { TestMiscControlsPageComponent } from './test-misc-controls-page/test-mi
   declarations: [
     AppComponent,
     TestMiscControlsPageComponent,
+    TestCssGoodiesPageComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

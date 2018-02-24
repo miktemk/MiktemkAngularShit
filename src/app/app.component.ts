@@ -19,6 +19,10 @@ export class AppComponent {
       url:'test-misc-controls',
       label: 'controls'
     },
+    {
+      url:'test-css-goodies',
+      label: 'CSS'
+    },
   ];
 }
 

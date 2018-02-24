@@ -5,10 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QueryBubbleControlComponent } from './query-bubble-control/query-bubble-control.component';
 import { MyPipesModule } from '../pipes/-my-pipes.module';
 import { MyDirectivesModule } from '../directives/-my-directives.module';
-import { MyCommonMaterialModulesModule } from '../my-material-components.module';
 import { TimelinePlayerControlsComponent } from 'app/common/controls/timeline-player-controls/timeline-player-controls.component';
 import { CodeWithHighlightControlComponent } from 'app/common/controls/code-with-highlight-control/code-with-highlight-control.component';
 import { DateTimePickerComponent } from 'app/common/controls/date-time-picker/date-time-picker.component';
+import { MyCommonMaterialModulesModule } from 'app/common/3rd-party-modules/my-material-components.module';
 
 @NgModule({
   imports: [
