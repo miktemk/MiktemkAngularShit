@@ -1,0 +1,145 @@
+@atom-orbital-loader-color: black;
+
+// TODO: 1c13aab7: cleanup with mixins
+.atom-orbital-loader {
+
+  @keyframes cssload-rotate-one {
+    0% {
+      -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+      transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100% {
+      -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+      transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+  }
+
+  @-webkit-keyframes cssload-rotate-one {
+    0% {
+      -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100% {
+      -webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+    }
+  }
+
+  @keyframes cssload-rotate-two {
+    0% {
+      -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+      transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100% {
+      -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+      transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+  }
+
+  @-webkit-keyframes cssload-rotate-two {
+    0% {
+      -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+    }
+    100% {
+      -webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+    }
+  }
+
+  @keyframes cssload-rotate-three {
+    0% {
+      -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+      transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100% {
+      -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+      transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+  }
+
+  @-webkit-keyframes cssload-rotate-three {
+    0% {
+      -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+    }
+    100% {
+      -webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+    }
+  }
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+
+  .cssload-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+
+    &.cssload-one {
+      left: 0%;
+      top: 0%;
+      animation: cssload-rotate-one 0.6s linear infinite;
+      -o-animation: cssload-rotate-one 0.6s linear infinite;
+      -ms-animation: cssload-rotate-one 0.6s linear infinite;
+      -webkit-animation: cssload-rotate-one 0.6s linear infinite;
+      -moz-animation: cssload-rotate-one 0.6s linear infinite;
+      border-bottom: 3px solid @atom-orbital-loader-color;
+    }
+
+    &.cssload-two {
+      right: 0%;
+      top: 0%;
+      animation: cssload-rotate-two 0.6s linear infinite;
+      -o-animation: cssload-rotate-two 0.6s linear infinite;
+      -ms-animation: cssload-rotate-two 0.6s linear infinite;
+      -webkit-animation: cssload-rotate-two 0.6s linear infinite;
+      -moz-animation: cssload-rotate-two 0.6s linear infinite;
+      border-right: 3px solid @atom-orbital-loader-color;
+    }
+
+    &.cssload-three {
+      right: 0%;
+      bottom: 0%;
+      animation: cssload-rotate-three 0.6s linear infinite;
+      -o-animation: cssload-rotate-three 0.6s linear infinite;
+      -ms-animation: cssload-rotate-three 0.6s linear infinite;
+      -webkit-animation: cssload-rotate-three 0.6s linear infinite;
+      -moz-animation: cssload-rotate-three 0.6s linear infinite;
+      border-top: 3px solid @atom-orbital-loader-color;
+    }
+  }
+
+  &.white {
+    @atom-orbital-loader-color2: white;
+    .cssload-inner {
+      &.cssload-one {
+        border-bottom: 3px solid @atom-orbital-loader-color2;
+      }
+      &.cssload-two {
+        border-right: 3px solid @atom-orbital-loader-color2;
+      }
+      &.cssload-three {
+        border-top: 3px solid @atom-orbital-loader-color2;
+      }
+    }
+  }
+}
