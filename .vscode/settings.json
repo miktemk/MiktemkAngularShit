@@ -9,5 +9,16 @@
         "dist": true
     },
     "editor.detectIndentation": false,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "typescriptHero.imports.multiLineWrapThreshold": 9999,
+    "typescriptHero.imports.grouping": [
+      "/@angularzzzz/",
+      "Modules",
+      "Plains",
+      "/lodash|moment|jquery|gsap/",
+      "/^core/",
+      "/^app|^environment/",
+      "Workspace",
+      "Remaining"
+    ]
 }
