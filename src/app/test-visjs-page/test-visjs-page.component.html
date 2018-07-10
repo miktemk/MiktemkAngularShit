@@ -1,0 +1,15 @@
+<div class="network-visualizer-container">
+  <div class="network-canvas"
+       [visNetwork]="visNetworkId"
+       [visNetworkData]="internalVisNetworkData"
+       [visNetworkOptions]="visNetworkOptions"
+       (initialized)="networkInitialized()">
+  </div>
+
+  <button class="fit-graph-button"
+          *ngIf="visNetworkData"
+          (click)="fitNetwork()">
+    <i class="fa fa-crosshairs"></i>
+  </button>
+
+</div>

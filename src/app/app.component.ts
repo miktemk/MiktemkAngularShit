@@ -16,6 +16,10 @@ export class AppComponent {
       label: 'ng2-charts'
     },
     {
+      url:'test-visjs',
+      label: 'vis.js'
+    },
+    {
       url:'test-misc-controls',
       label: 'controls'
     },
