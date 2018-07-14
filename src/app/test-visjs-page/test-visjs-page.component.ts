@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { VisNodes, VisEdges, VisNetworkOptions, VisNetworkService, VisNetworkData } from 'ngx-vis';
+import * as visjs from 'ngx-vis';
 
 import * as _ from 'lodash';
+import { MyVisjsEgde } from './my-hacked-models';
 
 
 @Component({
@@ -12,17 +13,17 @@ import * as _ from 'lodash';
 })
 export class TestVisjsPageComponent implements OnInit {
 
-  visNetworkData: VisNetworkData;
+  visNetworkData: visjs.VisNetworkData;
   visNetworkId:string;
 
   @Output()
   onNodeSelected = new EventEmitter<any>();
 
-  visNetworkOptions: VisNetworkOptions = {};
-  internalVisNetworkData: VisNetworkData;
+  visNetworkOptions: visjs.VisNetworkOptions = {};
+  internalVisNetworkData: visjs.VisNetworkData;
 
   constructor(
-    private visNetworkService: VisNetworkService,
+    private visNetworkService: visjs.VisNetworkService,
   ){
     this.visNetworkId = 'networkId1';
   }
@@ -60,7 +61,7 @@ export class TestVisjsPageComponent implements OnInit {
     //   ],
     // };
     // .... colors
-    this.internalVisNetworkData = {
+    this.internalVisNetworkData = <visjs.VisNetworkData> {
       nodes: [
         {id: 1, label:'html color', color: 'lime'},
         {id: 2, label:'rgb color', color: 'rgb(255,168,7)'},
@@ -70,16 +71,16 @@ export class TestVisjsPageComponent implements OnInit {
         {id: 6, label:'colorObject + highlight', color: {background:'#F03967', border:'#713E7F',highlight:{background:'red',border:'black'}}},
         {id: 7, label:'colorObject + highlight + hover', color: {background:'cyan', border:'blue',highlight:{background:'red',border:'blue'},hover:{background:'white',border:'red'}}}
       ],
-      edges:[
-        {from: 1, to: 3, id: 'shit', label: 'shits'},
-        {from: 3, to: 1, id: 'shit2'},
-        {from: 1, to: 2},
-        {from: 2, to: 4},
-        {from: 2, to: 5},
-        {from: 2, to: 6},
-        {from: 4, to: 7},
+      edges: [
+        <MyVisjsEgde> {from: 1, to: 3, id: 'shit', label: 'shits', width: 2},
+        <MyVisjsEgde> {from: 3, to: 1, id: 'shit2', width: 4},
+        <MyVisjsEgde> {from: 1, to: 2, arrows:'to', dashes:true},
+        <MyVisjsEgde> {from: 2, to: 4, arrows:'to, from'},
+        <MyVisjsEgde> {from: 2, to: 5, arrows:{to:{scaleFactor:2}}, width: 5},
+        <MyVisjsEgde> {from: 2, to: 6, arrows:{middle:{scaleFactor:0.5},from:true}},
+        <MyVisjsEgde> {from: 4, to: 7},
       ]
-    } as VisNetworkData;
+    };
     // .... TODO
     // this.internalVisNetworkData = <VisNetworkData>{
     //   nodes: [
@@ -87,7 +88,7 @@ export class TestVisjsPageComponent implements OnInit {
     //   edges:[
     //   ]
     // };
-    this.visNetworkOptions = <VisNetworkOptions> {
+    this.visNetworkOptions = <visjs.VisNetworkOptions> {
       nodes: {
         shape: 'box', // CODE: this is how to make nodes rectangular
         borderWidth: 2,
@@ -143,3 +144,4 @@ export class TestVisjsPageComponent implements OnInit {
   }
 
 }
+
