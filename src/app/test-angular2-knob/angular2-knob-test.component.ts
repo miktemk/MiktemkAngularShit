@@ -13,7 +13,7 @@ export class Angular2KnobTestComponent implements OnInit {
   }
 
   knOptions = {
-    readOnly: true,
+    readOnly: false,
     size: 140,
     unit: '%',
     textColor: '#000000',

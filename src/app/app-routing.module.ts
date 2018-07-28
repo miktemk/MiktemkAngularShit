@@ -7,6 +7,7 @@ import { TestCssGoodiesPageComponent } from './test-css-goodies-page/test-css-go
 import { TestMiscControlsPageComponent } from './test-misc-controls-page/test-misc-controls-page.component';
 import { TestNg2ChartsComponent } from './test-ng2-charts/test-ng2-charts.component';
 import { TestVisjsPageComponent } from './test-visjs-page/test-visjs-page.component';
+import { TestCanvas1PageComponent } from './test-canvas1-page/test-canvas1-page.component';
 
 
 const routes: Ng2StateDeclaration[] = [
@@ -14,6 +15,7 @@ const routes: Ng2StateDeclaration[] = [
   { name: 'test-ng2-charts', url: '/test-ng2-charts', component: TestNg2ChartsComponent },
   { name: 'test-misc-controls', url: '/test-misc-controls', component: TestMiscControlsPageComponent },
   { name: 'test-css-goodies', url: '/test-css-goodies', component: TestCssGoodiesPageComponent },
+  { name: 'test-canvas1', url: '/test-canvas1', component: TestCanvas1PageComponent },
   { name: 'test-visjs', url: '/test-visjs', component: TestVisjsPageComponent },
 ];
 

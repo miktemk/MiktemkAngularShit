@@ -11,6 +11,7 @@ import { MyCommonsModule } from 'app/common/my-commons.module';
 import { TestMiscControlsPageComponent } from './test-misc-controls-page/test-misc-controls-page.component';
 import { TestCssGoodiesPageComponent } from './test-css-goodies-page/test-css-goodies-page.component';
 import { TestVisjsPageComponent } from './test-visjs-page/test-visjs-page.component';
+import { TestCanvas1PageComponent } from './test-canvas1-page/test-canvas1-page.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { TestVisjsPageComponent } from './test-visjs-page/test-visjs-page.compon
     TestMiscControlsPageComponent,
     TestCssGoodiesPageComponent,
     TestVisjsPageComponent,
+    TestCanvas1PageComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,6 +27,10 @@ export class AppComponent {
       url:'test-css-goodies',
       label: 'CSS'
     },
+    {
+      url:'test-canvas1',
+      label: 'Canvas1'
+    },
   ];
 }
 
