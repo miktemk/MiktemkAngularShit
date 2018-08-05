@@ -8,6 +8,7 @@ import { TestMiscControlsPageComponent } from './test-misc-controls-page/test-mi
 import { TestNg2ChartsComponent } from './test-ng2-charts/test-ng2-charts.component';
 import { TestVisjsPageComponent } from './test-visjs-page/test-visjs-page.component';
 import { TestCanvas1PageComponent } from './test-canvas1-page/test-canvas1-page.component';
+import { TestPhaserPageComponent } from './test-phaser-page/test-phaser-page.component';
 
 
 const routes: Ng2StateDeclaration[] = [
@@ -17,6 +18,7 @@ const routes: Ng2StateDeclaration[] = [
   { name: 'test-css-goodies', url: '/test-css-goodies', component: TestCssGoodiesPageComponent },
   { name: 'test-canvas1', url: '/test-canvas1', component: TestCanvas1PageComponent },
   { name: 'test-visjs', url: '/test-visjs', component: TestVisjsPageComponent },
+  { name: 'test-phaser', url: '/test-phaser', component: TestPhaserPageComponent },
 ];
 
 

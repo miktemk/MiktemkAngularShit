@@ -30,7 +30,8 @@
               "src/styles.less"
             ],
             "scripts": [
-              "./node_modules/hammerjs/hammer.min.js"
+              "./node_modules/hammerjs/hammer.min.js",
+              "./node_modules/phaser-ce/build/phaser.js"
             ]
           },
           "configurations": {

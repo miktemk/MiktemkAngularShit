@@ -31,6 +31,10 @@ export class AppComponent {
       url:'test-canvas1',
       label: 'Canvas1'
     },
+    {
+      url:'test-phaser',
+      label: 'Phaser'
+    },
   ];
 }
 
