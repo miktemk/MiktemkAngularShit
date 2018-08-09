@@ -18,29 +18,38 @@ export class TestPhaserPageComponent implements OnInit {
 
 }
 
+class MyGameStateMain extends Phaser.State {
+  bgScrolling: Phaser.TileSprite;
 
-class SimpleGame {
-
-  constructor(myCanvasElem: ElementRef) {
-    this.game = new Phaser.Game(800, 600, Phaser.AUTO, myCanvasElem.nativeElement, { preload: this.preload, create: this.create });
+  preload(game: Phaser.Game) {
+    game.load.image('bg', 'assets/img/test-anime.jpg');
+    game.load.image('girl', 'assets/img/duke3d-stripper.gif');
+    game.load.image('svgg', 'assets/img/svg-test.svg');
   }
 
-  game: Phaser.Game;
+  create(game: Phaser.Game) {
+    this.bgScrolling = game.add.tileSprite(0, 0, 800, 600, 'bg');
 
-  preload() {
-    this.game.load.image('bg', 'assets/img/test-anime.jpg');
-    this.game.load.image('girl', 'assets/img/duke3d-stripper.gif');
-    this.game.load.image('svgg', 'assets/img/svg-test.svg');
-  }
-
-  create() {
-    var bg = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'bg');
-    bg.anchor.setTo(0.5, 0.5);
-    var svgTest = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'svgg');
+    var svgTest = game.add.sprite(game.world.centerX, game.world.centerY, 'svgg');
     svgTest.anchor.setTo(0.5, 0.5);
-    // var girl = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'girl');
-    // girl.anchor.setTo(0.5, 0.5);
+    //var girl = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'girl');
+    //girl.anchor.setTo(1, 1);
+    //girl.anchor.setTo(0, 0);
+    //girl.anchor.setTo(0.5, 0.5);
   }
 
+  update(game: Phaser.Game) {
+    this.bgScrolling.tilePosition.y += 2;
+  }
 }
 
+class SimpleGame {
+  game: Phaser.Game;
+  
+  constructor(myCanvasElem: ElementRef) {
+    let mainState = new MyGameStateMain();
+    this.game = new Phaser.Game(800, 600, Phaser.AUTO, myCanvasElem.nativeElement, mainState);
+  }
+}
+
+ 
