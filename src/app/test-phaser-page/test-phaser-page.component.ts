@@ -20,26 +20,39 @@ export class TestPhaserPageComponent implements OnInit {
 
 class MyGameStateMain extends Phaser.State {
   bgScrolling: Phaser.TileSprite;
+  player: Phaser.Sprite;
+  cursors: Phaser.CursorKeys;
 
   preload(game: Phaser.Game) {
     game.load.image('bg', 'assets/img/test-anime.jpg');
     game.load.image('girl', 'assets/img/duke3d-stripper.gif');
-    game.load.image('svgg', 'assets/img/svg-test.svg');
+    game.load.image('player', 'assets/img/svg-test.svg');
   }
 
   create(game: Phaser.Game) {
     this.bgScrolling = game.add.tileSprite(0, 0, 800, 600, 'bg');
 
-    var svgTest = game.add.sprite(game.world.centerX, game.world.centerY, 'svgg');
-    svgTest.anchor.setTo(0.5, 0.5);
+    this.player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
+    this.player.anchor.setTo(0.5, 0.5);
+    game.physics.enable(this.player, Phaser.Physics.ARCADE);
+
+    this.cursors = game.input.keyboard.createCursorKeys();
+
     //var girl = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'girl');
     //girl.anchor.setTo(1, 1);
     //girl.anchor.setTo(0, 0);
     //girl.anchor.setTo(0.5, 0.5);
+
+    
   }
 
   update(game: Phaser.Game) {
     this.bgScrolling.tilePosition.y += 2;
+    this.player.body.velocity.x = 0;
+    if (this.cursors.left.isDown)
+      this.player.body.velocity.x = -350;
+    if (this.cursors.right.isDown)
+      this.player.body.velocity.x = 350;
   }
 }
 
