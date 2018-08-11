@@ -22,7 +22,11 @@ export class TestPhaserPageComponent implements OnInit {
 const nameof = <T>(name: keyof T) => name;
 
 class MyGameStateMain extends Phaser.State {
+  dButton: Phaser.Key;
+  aButton: Phaser.Key;
+  eagle: Phaser.Sprite;
   bgScrolling: Phaser.TileSprite;
+  bgScrolling2: Phaser.TileSprite;
   player: Phaser.Sprite;
   bullets: Phaser.Group;
   cursors: Phaser.CursorKeys;
@@ -30,19 +34,29 @@ class MyGameStateMain extends Phaser.State {
   bulletTime: number;
   
   preload(game: Phaser.Game) {
-    game.load.image('bg', 'assets/img/test-anime.jpg');
+    game.load.image('bg', 'assets/img/bg1.jpg');
+    game.load.image('bg-trash', 'assets/img/bg-trash.svg');
     game.load.image('girl', 'assets/img/duke3d-stripper.gif');
-    game.load.image('player', 'assets/img/player.svg');
+    game.load.image('eagle', 'assets/img/eagle-villain.png');
+    //game.load.image('player', 'assets/img/player.svg');
+    game.load.image('player', 'assets/img/santo-gun.png');
     game.load.image('bullet', 'assets/img/bullet.svg');
+    game.load.audio('music', 'assets/audio/rising-sun.mp3');
   }
 
   create(game: Phaser.Game) {
     this.bgScrolling = game.add.tileSprite(0, 0, 800, 600, 'bg');
+    
+    this.eagle = game.add.sprite(game.world.centerX+200, game.world.centerY, 'eagle');
+    this.eagle.anchor.setTo(0.5, 0.5);
+    game.physics.enable(this.eagle, Phaser.Physics.ARCADE);
 
     this.player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
     this.player.anchor.setTo(0.5, 0.5);
     game.physics.enable(this.player, Phaser.Physics.ARCADE);
 
+    this.bgScrolling2 = game.add.tileSprite(0, 0, 800, 600, 'bg-trash');
+    
     this.cursors = game.input.keyboard.createCursorKeys();
 
     this.bullets = game.add.group();
@@ -55,8 +69,13 @@ class MyGameStateMain extends Phaser.State {
     this.bullets.setAll(nameof<Phaser.Sprite>('checkWorldBounds'), true);
 
     this.fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    this.aButton = game.input.keyboard.addKey(Phaser.Keyboard.A);
+    this.dButton = game.input.keyboard.addKey(Phaser.Keyboard.D);
 
     this.bulletTime = game.time.now + 200;
+
+    let music = game.add.audio('music', 1, true);
+    music.play();
     
     //var girl = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'girl');
     //girl.anchor.setTo(1, 1);
@@ -65,12 +84,18 @@ class MyGameStateMain extends Phaser.State {
   }
 
   update(game: Phaser.Game) {
-    this.bgScrolling.tilePosition.y += 2;
+    this.bgScrolling.tilePosition.x += 2;
+    this.bgScrolling2.tilePosition.x += 3;
     this.player.body.velocity.x = 0;
+    this.eagle.body.velocity.x = 0;
     if (this.cursors.left.isDown)
       this.player.body.velocity.x = -350;
     if (this.cursors.right.isDown)
       this.player.body.velocity.x = 350;
+    if (this.aButton.isDown)
+      this.eagle.body.velocity.x = -350;
+    if (this.dButton.isDown)
+      this.eagle.body.velocity.x = 350;
     if (this.fireButton.isDown)
       this.fireBullets(game);
   }
@@ -79,8 +104,8 @@ class MyGameStateMain extends Phaser.State {
     if (game.time.now > this.bulletTime) {
       var bullet = this.bullets.getFirstExists(false);
       if (bullet) {
-        bullet.reset(this.player.x, this.player.y);
-        bullet.body.velocity.y = -300;
+        bullet.reset(this.player.x + 70, this.player.y-40);
+        bullet.body.velocity.x = 300;
         this.bulletTime = game.time.now + 200;
       }
     }
