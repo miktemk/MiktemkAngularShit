@@ -35,7 +35,8 @@ class MyGameStateMain extends Phaser.State {
   
   preload(game: Phaser.Game) {
     game.load.image('bg', 'assets/img/bg1.jpg');
-    game.load.image('bg-trash', 'assets/img/bg-trash.svg');
+    //game.load.image('bg-trash', 'assets/img/bg-trash.svg');
+    game.load.image('bg-trash', 'assets/img/bg-trash-lizarded.svg');
     game.load.image('girl', 'assets/img/duke3d-stripper.gif');
     game.load.image('eagle', 'assets/img/eagle-villain.png');
     //game.load.image('player', 'assets/img/player.svg');
