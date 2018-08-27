@@ -12,6 +12,7 @@ import { TestMiscControlsPageComponent } from './test-misc-controls-page/test-mi
 import { TestCssGoodiesPageComponent } from './test-css-goodies-page/test-css-goodies-page.component';
 import { TestVisjsPageComponent } from './test-visjs-page/test-visjs-page.component';
 import { TestCanvas1PageComponent } from './test-canvas1-page/test-canvas1-page.component';
+import { VisitkaPageComponent } from './visitka-page/visitka-page.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { TestCanvas1PageComponent } from './test-canvas1-page/test-canvas1-page.
     TestCssGoodiesPageComponent,
     TestVisjsPageComponent,
     TestCanvas1PageComponent,
+    VisitkaPageComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
