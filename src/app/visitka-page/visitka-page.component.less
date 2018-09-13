@@ -1,15 +1,27 @@
-@color-border-cut: black;
-@color-border-fold: #bbb;
+@scaleFactor: 1;
+@color-border-cut: #00000046;
+@color-border-fold: #00000013;
+@marginBg: #bef7fd;
+
+// @imgUrlTexture1: '/assets/img/texture-1.jpg';
+// @imgUrlTexture2: '/assets/img/texture-2.jpg';
+// @imgUrlTexture3: '/assets/img/texture-3.jpg';
+// @imgUrlTexture4: '/assets/img/texture-4.jpg';
+
+@imgUrlTexture1: '/assets/img/texture-custom-1.jpg';
+@imgUrlTexture2: '/assets/img/texture-custom-2.jpg';
+@imgUrlTexture3: '/assets/img/texture-custom-3.jpg';
+@imgUrlTexture4: '/assets/img/texture-custom-4.jpg';
+
 
 :host {
   display: block;
   padding: 20px;
-
   @cardW: 350px;
   @cardH: 200px;
-  @scaleFactor: 1;
 
-  .root {
+  .visitka-root {
+    border: 1px dashed @color-border-cut;
     position: relative;
     width: 2 * @cardH * @scaleFactor;
     height: @cardW * @scaleFactor;
@@ -141,7 +153,6 @@
     
   }
 
-
   .root12 {
     //------------------------------------
     .panel1 {
@@ -149,7 +160,7 @@
       width: 50%;
       height: 100%;
       left: 25%;
-      background-image: url('/assets/img/texture-1.jpg');
+      background-image: url(@imgUrlTexture1);
       background-size: cover;
     }
     //------------------------------------
@@ -157,17 +168,17 @@
       position: absolute;
       width: 25%;
       height: 100%;
-      background-image: url('/assets/img/texture-2.jpg');
+      background-image: url(@imgUrlTexture2);
       background-size: 200% 100%;
     }
     .panel2-1 {
       .panel2();
-      background-position-x: 0;
+      background-position-x: 100%;
     }
     .panel2-2 {
       .panel2();
       left: 75%;
-      background-position-x: 100%;
+      background-position-x: 0;
       
     }
     //------------------------------------
@@ -175,7 +186,7 @@
       position: absolute;
       width: 25%;
       height: 50%;
-      background-image: url('/assets/img/texture-3.jpg');
+      background-image: url(@imgUrlTexture3);
       background-size: 200% 100%;
       -webkit-transform: rotate(180deg);     /* Chrome and other webkit browsers */
       -moz-transform: rotate(180deg);        /* FF */
@@ -199,7 +210,7 @@
       width: 50%;
       height: 25%;
       left: 25%;
-      background-color: rgb(190, 247, 253);
+      background-color: @marginBg;
     }
     .panel34-1 {
       .panel34();
@@ -214,7 +225,7 @@
       position: absolute;
       width: 12.5%;
       height: 25%;
-      background-image: url('/assets/img/texture-4.jpg');
+      background-image: url(@imgUrlTexture4);
       background-size: 400% 200%;
     }
     .panel42() {
@@ -258,5 +269,10 @@
       background-position-x: 100%;
     }
 
+  }
+}
+
+@media print {
+  .visitka-root {
   }
 }
