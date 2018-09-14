@@ -1,6 +1,6 @@
 import { Directive, Input, ElementRef, Host, HostListener } from '@angular/core';
 import { UIRouter, SrefStatus, UISrefStatus } from "@uirouter/angular";
-import { Subscription } from "rxjs/Subscription";
+import { Subscription } from "rxjs";
 
 
 @Directive({

@@ -36,7 +36,7 @@ export class Angular2KnobTestComponent implements OnInit {
       color: '#000000',
       offset: 7
     },
-  }
+  };
   value = 75; 
 
 }

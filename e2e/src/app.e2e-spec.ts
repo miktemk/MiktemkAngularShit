@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('miktemk-angular-shit App', () => {
+describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('miktemk-angular-shit App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to my!');
+    expect(page.getParagraphText()).toEqual('Welcome to MiktemkAngularShit!');
   });
 });
