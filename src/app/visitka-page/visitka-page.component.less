@@ -1,17 +1,19 @@
-@scaleFactor: 1;
+@scaleFactor: 2;
 @color-border-cut: #00000046;
 @color-border-fold: #00000013;
-@marginBg: #bef7fd;
+@marginBg: #fff;
 
 // @imgUrlTexture1: '/assets/img/texture-1.jpg';
 // @imgUrlTexture2: '/assets/img/texture-2.jpg';
 // @imgUrlTexture3: '/assets/img/texture-3.jpg';
 // @imgUrlTexture4: '/assets/img/texture-4.jpg';
 
-@imgUrlTexture1: '/assets/img/texture-custom-1.jpg';
-@imgUrlTexture2: '/assets/img/texture-custom-2.jpg';
-@imgUrlTexture3: '/assets/img/texture-custom-3.jpg';
-@imgUrlTexture4: '/assets/img/texture-custom-4.jpg';
+@imgUrlTexture1: '/assets/img/texture-custom-1-ray.png';
+@imgUrlTexture2: '/assets/img/texture-custom-2.png';
+// @imgUrlTexture3: '/assets/img/texture-custom-3.jpg';
+// @imgUrlTexture4: '/assets/img/texture-custom-4.jpg';
+@imgUrlTexture3: '/assets/img/ray-bg3.png';
+@imgUrlTexture4: '/assets/img/ray-bg4.png';
 
 
 :host {
@@ -98,6 +100,9 @@
       border-top: 1px dashed @color-border-cut;
     }
 
+    @gluePatchColorFG: #bbb;
+    @gluePatchColorBG: #ffe1e6;
+
     //------------------------------------------------
     .glue-patch() {
       &:before {
@@ -111,8 +116,8 @@
       height: 25%;
       text-align: center;
       font-size: 30px;
-      color: #999;
-      background-color: pink;
+      color: @gluePatchColorFG;
+      background-color: @gluePatchColorBG;
     }
     .glue-patch-a1 {
       .glue-patch();
